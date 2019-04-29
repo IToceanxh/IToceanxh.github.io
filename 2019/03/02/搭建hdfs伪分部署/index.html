@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://IToceanxh.github.io">
   <title>搭建hdfs伪分部署 | 小海的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="描述了搭建hdfs过分布式的过程">
-<meta name="keywords" content="若泽数据,大数据,基础">
+  <meta name="description" content="软件版本     软件 Hadoop JDK     版本 2.6.0-cdh5.7.0 jdk1.8.0_45     部署JDK飞机票：点击跳转">
+<meta name="keywords" content="基础,若泽数据,大数据">
 <meta property="og:type" content="article">
 <meta property="og:title" content="搭建hdfs伪分部署">
 <meta property="og:url" content="http://IToceanxh.github.io/2019/03/02/搭建hdfs伪分部署/index.html">
 <meta property="og:site_name" content="小海的博客">
-<meta property="og:description" content="描述了搭建hdfs过分布式的过程">
+<meta property="og:description" content="软件版本     软件 Hadoop JDK     版本 2.6.0-cdh5.7.0 jdk1.8.0_45     部署JDK飞机票：点击跳转">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-29T10:45:36.897Z">
+<meta property="og:updated_time" content="2019-04-29T14:51:10.638Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="搭建hdfs伪分部署">
-<meta name="twitter:description" content="描述了搭建hdfs过分布式的过程">
+<meta name="twitter:description" content="软件版本     软件 Hadoop JDK     版本 2.6.0-cdh5.7.0 jdk1.8.0_45     部署JDK飞机票：点击跳转">
   
     <link rel="alternative" href="/atom.xml" title="小海的博客" type="application/atom+xml">
   
@@ -179,8 +179,51 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>描述了搭建hdfs过分布式的过程</p>
+        <ul>
+<li>软件版本</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>软件</th>
+<th>Hadoop</th>
+<th>JDK</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>版本</td>
+<td>2.6.0-cdh5.7.0</td>
+<td>jdk1.8.0_45</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>部署JDK飞机票：<a href="https://itoceanxh.github.io/2019/03/02/20190429222426/">点击跳转</a></li>
+</ul>
 <a id="more"></a>
+<ol>
+<li><p>创建hadoop用户，管理所有hadoop生态软件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 创建用户</span><br><span class="line">user add</span><br><span class="line"># 切换到hadoop用户</span><br><span class="line">su - hadoop</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir app	# hadoop组件安装目录</span><br><span class="line">mkdir software	# hadoop组件安装包下载路径</span><br><span class="line">mkdir data	# hadoop组件数据存放路径</span><br><span class="line">mkdir source # hadoop组件源码路径</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>下载hadoop-2.6.0-cdh5.7.0</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd software</span><br><span class="line">wget http://archive.cloudera.com/cdh5/cdh/5/hadoop-2.6.0-cdh5.7.0.tar.gz</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>解压hadoop-2.6.0-cdh5.7.0</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf hadoop-2.6.0-cdh5.7.0.tar.gz -C ../app/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置etc/hadoop/hadoop-env.sh脚本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd ../app/</span><br><span class="line">vim etc/hadoop/hadoop-env.sh</span><br><span class="line"># The java implementation to use.</span><br><span class="line">export JAVA_HOME=/usr/java/jdk1.8.0_45</span><br><span class="line">export HADOOP_PREFIC=/home/hadoop/app/hadoop-2.6.0-cdh5.7.0</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编辑配置文件<br>core-site.xml</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">vim etc/hadoop/core-site.xml</span><br><span class="line">&lt;configuration&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;fs.defaultFS&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;hdfs://localhost:9000&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>hdfs-site.xml<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">vim etc/hadoop/hdfs-site.xml</span><br><span class="line">&lt;configuration&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;dfs.replication&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;1&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure></p>
+
       
 
       
@@ -193,15 +236,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">基础</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">若泽数据</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">基础</a>
         		</li>
       		
 		</ul>
@@ -272,8 +315,8 @@
 <nav id="article-nav">
   
   
-    <a href="/2019/03/02/Hadoop入门篇/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hadoop入门篇</div>
+    <a href="/2019/03/02/20190429222426/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Linux部署jdk</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -412,11 +455,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">若泽数据</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">大数据</a>
+                <a href="javascript:void(0)" class="js-tag color3">运维</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -424,15 +463,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">运维</a>
+                <a href="javascript:void(0)" class="js-tag color5">若泽数据</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Linux基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">大数据</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
