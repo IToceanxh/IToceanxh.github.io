@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://IToceanxh.github.io">
-  <title>人生成长之开启大数据学习之旅 | 小海的博客</title>
+  <title>部署MySQL数据库 | 小海的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="开启在 若泽数据 的大数据学习之旅">
-<meta name="keywords" content="若泽数据,基础,大数据">
+  <meta name="description" content="部署MySQL数据库的两种方式">
+<meta name="keywords" content="Linux基础,运维,若泽数据,数据库">
 <meta property="og:type" content="article">
-<meta property="og:title" content="人生成长之开启大数据学习之旅">
-<meta property="og:url" content="http://IToceanxh.github.io/2019/01/17/开启大数据学习之旅/index.html">
+<meta property="og:title" content="部署MySQL数据库">
+<meta property="og:url" content="http://IToceanxh.github.io/2019/01/28/部署MySQL数据库/index.html">
 <meta property="og:site_name" content="小海的博客">
-<meta property="og:description" content="开启在 若泽数据 的大数据学习之旅">
+<meta property="og:description" content="部署MySQL数据库的两种方式">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-29T08:25:47.693Z">
+<meta property="og:updated_time" content="2019-04-29T10:19:54.929Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="人生成长之开启大数据学习之旅">
-<meta name="twitter:description" content="开启在 若泽数据 的大数据学习之旅">
+<meta name="twitter:title" content="部署MySQL数据库">
+<meta name="twitter:description" content="部署MySQL数据库的两种方式">
   
     <link rel="alternative" href="/atom.xml" title="小海的博客" type="application/atom+xml">
   
@@ -159,33 +159,76 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-开启大数据学习之旅" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-部署MySQL数据库" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      人生成长之开启大数据学习之旅
+      部署MySQL数据库
     </h1>
   
 
         
-        <a href="/2019/01/17/开启大数据学习之旅/" class="archive-article-date">
-  	<time datetime="2019-01-17T08:03:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-17</time>
+        <a href="/2019/01/28/部署MySQL数据库/" class="archive-article-date">
+  	<time datetime="2019-01-28T13:38:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-28</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>开启在 若泽数据 的大数据学习之旅<br><a id="more"></a></p>
-<h2 id="如何学习大数据？"><a href="#如何学习大数据？" class="headerlink" title="如何学习大数据？"></a>如何学习大数据？</h2><ol>
-<li>搭建学习环境</li>
-<li>调整学习心态</li>
-<li>若泽数据阶段性学习目录<br>1）Linux<br>2）shell<br>3）MySql<br>4）SQL<br>5）Hadoop<br>6）Hive<br>7）离线项目<br>8）Python<br>9）人工智能</li>
+        <p>部署MySQL数据库的两种方式</p>
+<a id="more"></a>
+<p>一、使用yum方式安装数据库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install mysql</span><br></pre></td></tr></table></figure></p>
+<p>二、 自定义安装</p>
+<ol>
+<li>准备MySQL安装包，上传到linux</li>
+<li><p>查询是否安装过MySQL</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop614 local]# ps -ef|grep mysqld | grep -v grep</span><br><span class="line">[root@hadoop614 local]# rpm -qa |grep -i mysql</span><br><span class="line">[root@hadoop614 local]#</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>解压压缩文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop614 local]# tar zvfx mysql-5.6.23-linux-glibc2.5-x86_64.tar.gz </span><br><span class="line">[root@hadoop614 local]# mv mysql-5.6.23-linux-glibc2.5-x86_64 mysql</span><br><span class="line">[root@hadoop614 local]# ll -d mysql*</span><br><span class="line">drwxr-xr-x 13 root root      4096 Jan 27 17:10 mysql</span><br><span class="line">-rw-r--r--  1 root root 311771412 Jan 27 16:18 mysql-5.6.23-linux-glibc2.5-x86_64.tar.gz</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建用户</p>
+<ul>
+<li><p>检查是否存在dba组和mysqladmin用户</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop614 local]# cat /etc/group | grep dba</span><br><span class="line">[root@hadoop614 local]# cat /etc/passwd | grep mysqladmin</span><br><span class="line">[root@hadoop614 local]#</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建用户组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop614 local]# groupadd -g 101 dba		# -g 制定组id</span><br><span class="line">[root@hadoop614 local]# cat /etc/group | grep dba</span><br><span class="line">dba:x:101:</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建用户</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop614 local]# useradd -u 501 -g dba -G root -d /usr/local/mysql mysqladmin</span><br><span class="line">useradd: warning: the home directory already exists.# 提示用户家目录已经存在</span><br><span class="line">Not copying any file from skel directory into it.	# 没有cp skel到家目录中</span><br><span class="line">[root@hadoop614 etc]# id mysqladmin</span><br><span class="line">uid=501(mysqladmin) gid=101(dba) groups=101(dba),0(root)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>复制配置文件到mysqladmin家目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop614 skel]# cp /etc/skel/.* /usr/local/mysql</span><br><span class="line">cp: omitting directory ‘.’</span><br><span class="line">cp: omitting directory ‘..’</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>配置my.cnf配置文件</p>
+</li>
 </ol>
-<h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><p>通过在若泽数据几个月的学习阶段，尽快了解并掌握互联网行业及大数据方向的专业知识。提高个人能力水平</p>
+<blockquote>
+<p>程序查找配置文件顺序</p>
+<p>#defualt start: /etc/my.cnf –&gt;/etc/mysql/my.cnf – &gt;SYSCONFDIR/my.cnf<br>-&gt;$MYSQL_HOME/my.cnf-&gt; –defaults-extra-file-&gt;~/my.cnf </p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop614 ~]# cd /etc/</span><br><span class="line">[root@hadoop614 etc]# vi my.cnf</span><br><span class="line">[client]</span><br><span class="line">port            = 3306</span><br><span class="line">socket          = /usr/local/mysql/data/mysql.sock</span><br><span class="line"></span><br><span class="line">[mysqld]</span><br><span class="line">port            = 3306</span><br><span class="line">socket          = /usr/local/mysql/data/mysql.sock</span><br><span class="line"></span><br><span class="line">skip-external-locking</span><br><span class="line">key_buffer_size = 256M</span><br><span class="line">sort_buffer_size = 2M</span><br><span class="line">read_buffer_size = 2M</span><br><span class="line">read_rnd_buffer_size = 4M</span><br><span class="line">query_cache_size= 32M</span><br><span class="line">max_allowed_packet = 16M</span><br><span class="line">myisam_sort_buffer_size=128M</span><br><span class="line">tmp_table_size=32M</span><br><span class="line"></span><br><span class="line">table_open_cache = 512</span><br><span class="line">thread_cache_size = 8</span><br><span class="line">wait_timeout = 86400</span><br><span class="line">interactive_timeout = 86400</span><br><span class="line">max_connections = 600</span><br><span class="line"></span><br><span class="line"># Try number of CPU&apos;s*2 for thread_concurrency</span><br><span class="line">thread_concurrency = 32</span><br><span class="line"></span><br><span class="line">#isolation level and default engine </span><br><span class="line">default-storage-engine = INNODB</span><br><span class="line">transaction-isolation = READ-COMMITTED</span><br><span class="line"></span><br><span class="line">server-id  = 1</span><br><span class="line">basedir     = /usr/local/mysql</span><br><span class="line">datadir     = /usr/local/mysql/data</span><br><span class="line">pid-file     = /usr/local/mysql/data/hostname.pid</span><br><span class="line"></span><br><span class="line">#open performance schema</span><br><span class="line">log-warnings</span><br><span class="line">sysdate-is-now</span><br><span class="line"></span><br><span class="line">binlog_format = MIXED</span><br><span class="line">log_bin_trust_function_creators=1</span><br><span class="line">log-error  = /usr/local/mysql/data/hostname.err</span><br><span class="line">log-bin=/usr/local/mysql/arch/mysql-bin</span><br><span class="line">#other logs</span><br><span class="line">#general_log =1</span><br><span class="line">#general_log_file  = /usr/local/mysql/data/general_log.err</span><br><span class="line">#slow_query_log=1</span><br><span class="line">#slow_query_log_file=/usr/local/mysql/data/slow_log.err</span><br><span class="line"></span><br><span class="line">#for replication slave</span><br><span class="line">#log-slave-updates </span><br><span class="line">#sync_binlog = 1</span><br><span class="line"></span><br><span class="line">#for innodb options </span><br><span class="line">innodb_data_home_dir = /usr/local/mysql/data/</span><br><span class="line">innodb_data_file_path = ibdata1:500M:autoextend</span><br><span class="line">innodb_log_group_home_dir = /usr/local/mysql/arch</span><br><span class="line">innodb_log_files_in_group = 2</span><br><span class="line">innodb_log_file_size = 200M</span><br><span class="line"></span><br><span class="line">#生产上 机械硬盘 sata盘 5000r 7200 10000 15000 ==&gt; ssd 生产</span><br><span class="line"># innodb_buffer_pool_size 调大 8G</span><br><span class="line"></span><br><span class="line">innodb_buffer_pool_size = 1024M </span><br><span class="line">innodb_additional_mem_pool_size = 50M</span><br><span class="line">innodb_log_buffer_size = 16M</span><br><span class="line"></span><br><span class="line">innodb_lock_wait_timeout = 100</span><br><span class="line">#innodb_thread_concurrency = 0</span><br><span class="line">innodb_flush_log_at_trx_commit = 1</span><br><span class="line">innodb_locks_unsafe_for_binlog=1</span><br><span class="line"></span><br><span class="line">#innodb io features: add for mysql5.5.8</span><br><span class="line">performance_schema</span><br><span class="line">innodb_read_io_threads=4</span><br><span class="line">innodb-write-io-threads=4</span><br><span class="line">innodb-io-capacity=200</span><br><span class="line">#purge threads change default(0) to 1 for purge</span><br><span class="line">innodb_purge_threads=1</span><br><span class="line">innodb_use_native_aio=on</span><br><span class="line"></span><br><span class="line">#case-sensitive file names and separate tablespace</span><br><span class="line">innodb_file_per_table = 1</span><br><span class="line">lower_case_table_names=1</span><br><span class="line"></span><br><span class="line">[mysqldump]</span><br><span class="line">quick</span><br><span class="line">max_allowed_packet = 16M</span><br><span class="line"></span><br><span class="line">[mysql]</span><br><span class="line">no-auto-rehash</span><br><span class="line"></span><br><span class="line">[mysqlhotcopy]</span><br><span class="line">interactive-timeout</span><br><span class="line"></span><br><span class="line">[myisamchk]</span><br><span class="line">key_buffer_size = 256M</span><br><span class="line">sort_buffer_size = 256M</span><br><span class="line">read_buffer = 2M</span><br><span class="line">write_buffer = 2M</span><br></pre></td></tr></table></figure>
+<p>6.修改my.cnf配置文件权限和所属<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop614 etc]# chmod 640 my.cnf</span><br><span class="line">[root@hadoop614 etc]# chown mysqladmin:dba my.cnf</span><br><span class="line">[root@hadoop614 etc]# ll my.cnf</span><br><span class="line">-rw-r----- 1 mysqladmin dba 2326 Jan 27 17:38 my.cnf</span><br></pre></td></tr></table></figure></p>
+<p>7.修改sqladmin家目录权限<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop614 etc]# chmod -R 755 /usr/local/mysql</span><br><span class="line">[root@hadoop614 etc]# chown -R mysqladmin:dba /usr/local/mysql</span><br><span class="line">[root@hadoop614 etc]# ll -d /usr/local/mysql</span><br><span class="line">drwxr-xr-x 13 mysqladmin dba 4096 Jan 27 17:31 /usr/local/mysql</span><br></pre></td></tr></table></figure></p>
+<p>8.创建arch目录 存储binlog 归档日志</p>
+<blockquote>
+<p>实时同步 MySQL数据到hbase<br>mysql–maxwell–kafka–ss–hbase</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop614 etc]# su - mysqladmin</span><br><span class="line">[mysqladmin@hadoop614 ~]$ pwd</span><br><span class="line">/usr/local/mysql</span><br><span class="line">[mysqladmin@hadoop614 ~]$ ll -d arch/</span><br><span class="line">drwxr-xr-x 2 mysqladmin dba 4096 Jan 27 17:46 arch/</span><br></pre></td></tr></table></figure>
+<p>9.安装MySQL数据库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop614 etc]# su - mysqladmin</span><br><span class="line">[mysqladmin@hadoop614 ~]$ pwd</span><br><span class="line">/usr/local/mysql</span><br><span class="line">[mysqladmin@hadoop614 ~]$ scripts/mysql_install_db  \</span><br><span class="line">&gt; --user=mysqladmin \</span><br><span class="line">&gt; --basedir=/usr/local/mysql \</span><br><span class="line">&gt; --datadir=/usr/local/mysql/data</span><br></pre></td></tr></table></figure></p>
+<p>10.配置MySQL服务并引导自动启动<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[mysqladmin@hadoop614 support-files]$ exit</span><br><span class="line">logout</span><br><span class="line"># 将服务文件拷贝到init.d下，并重命名为mysql</span><br><span class="line">[root@hadoop614 ~]# cd /usr/local/mysql</span><br><span class="line">[root@hadoop614 mysql]# cp support-files/mysql.server /etc/rc.d/init.d/mysql </span><br><span class="line">#赋予可执行权限</span><br><span class="line">[root@hadoop614 mysql]# chmod +x /etc/rc.d/init.d/mysql</span><br><span class="line">#删除服务</span><br><span class="line">[root@hadoop614 mysql]# chkconfig --del mysql</span><br><span class="line">[#添加服务</span><br><span class="line">root@hadoop614 mysql]# chkconfig --add mysql</span><br><span class="line">[root@hadoop614 mysql]# chkconfig --level 345 mysql on</span><br><span class="line">[root@hadoop614 mysql]# vi /etc/rc.local</span><br><span class="line">在文件中追加：su - mysqladmin -c &quot;/etc/init.d/mysql start --federated&quot;</span><br></pre></td></tr></table></figure></p>
+<p>11.启动MySQL并查看进程和侦听<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop614 mysql]# su - mysqladmin</span><br><span class="line">Last login: Sun Jan 27 18:04:31 CST 2019 on pts/1</span><br><span class="line">[mysqladmin@hadoop614 ~]$  rm -rf my.cnf</span><br><span class="line">方法一：</span><br><span class="line">[mysqladmin@hadoop614 ~]$ service mysql start</span><br><span class="line">Starting MySQL..[  OK  ]</span><br><span class="line">[mysqladmin@hadoop614 ~]$ service mysql status</span><br><span class="line">MySQL running (14023)[  OK  ]</span><br><span class="line">方法二：</span><br><span class="line">[mysqladmin@hadoop614 ~]$ service mysql stop</span><br><span class="line">Shutting down MySQL..[  OK  ]</span><br><span class="line">[mysqladmin@hadoop614 ~]$ mysqld_safe &amp;</span><br><span class="line">[1] 14901</span><br><span class="line">[mysqladmin@hadoop614 ~]$ 190127 18:24:18 mysqld_safe Logging to &apos;/usr/local/mysql/data/hostname.err&apos;.</span><br><span class="line">190127 18:24:18 mysqld_safe Starting mysqld daemon with databases from /usr/local/mysql/data</span><br><span class="line"></span><br><span class="line">[mysqladmin@hadoop614 ~]$ service mysql status</span><br><span class="line">MySQL running (15544)[  OK  ]</span><br><span class="line">[mysqladmin@hadoop614 ~]$</span><br></pre></td></tr></table></figure></p>
+<p>到这里，MySQL数据库已部署完成。</p>
+<blockquote>
+<p>部署过程中MySQL默认创建两个用户<br>一：root用户，密码为空<br>二：空用户，空密码</p>
+</blockquote>
 
       
 
@@ -199,15 +242,19 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Linux基础</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">若泽数据</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">基础</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
         		</li>
       		
 		</ul>
@@ -263,7 +310,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://IToceanxh.github.io/2019/01/17/开启大数据学习之旅/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://IToceanxh.github.io/2019/01/28/部署MySQL数据库/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -277,15 +324,20 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/01/17/VMware部署Linux系统/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/01/28/MySQL基础一/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          阿里云环境准备
+          MySQL基础一
         
       </div>
     </a>
   
+  
+    <a href="/2019/01/26/Linux基础命令三/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Linux基础命令三</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -310,7 +362,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#如何学习大数据？"><span class="toc-number">1.</span> <span class="toc-text">如何学习大数据？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#目标"><span class="toc-number">2.</span> <span class="toc-text">目标</span></a></li></ol>
+                    目录，不存在的…
                     </div>
                 </span>
             </div>

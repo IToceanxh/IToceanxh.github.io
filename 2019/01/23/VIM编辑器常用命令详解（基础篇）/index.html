@@ -6,20 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://IToceanxh.github.io">
-  <title>人生成长之开启大数据学习之旅 | 小海的博客</title>
+  <title>VIM编辑器常用命令详解（基础篇） | 小海的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="开启在 若泽数据 的大数据学习之旅">
-<meta name="keywords" content="若泽数据,基础,大数据">
+  <meta name="description" content="一、vi/vim是什么Linux世界几乎所有的配置文件都是以纯文本形式存在的，而在所有的Linux发行版系统上都有vi编辑器，因此利用简单的文字编辑软件就能够轻松地修改系统的各种配置了，非常方便。vi就是一种功能强大的文本编辑器，而vim则是高级版的vi，不但可以用不同颜色显示文字内容，还能进行诸如shell脚本、C语言程序编辑等功能，可以作为程序编辑器。">
+<meta name="keywords" content="Linux基础,运维,若泽数据">
 <meta property="og:type" content="article">
-<meta property="og:title" content="人生成长之开启大数据学习之旅">
-<meta property="og:url" content="http://IToceanxh.github.io/2019/01/17/开启大数据学习之旅/index.html">
+<meta property="og:title" content="VIM编辑器常用命令详解（基础篇）">
+<meta property="og:url" content="http://IToceanxh.github.io/2019/01/23/VIM编辑器常用命令详解（基础篇）/index.html">
 <meta property="og:site_name" content="小海的博客">
-<meta property="og:description" content="开启在 若泽数据 的大数据学习之旅">
+<meta property="og:description" content="一、vi/vim是什么Linux世界几乎所有的配置文件都是以纯文本形式存在的，而在所有的Linux发行版系统上都有vi编辑器，因此利用简单的文字编辑软件就能够轻松地修改系统的各种配置了，非常方便。vi就是一种功能强大的文本编辑器，而vim则是高级版的vi，不但可以用不同颜色显示文字内容，还能进行诸如shell脚本、C语言程序编辑等功能，可以作为程序编辑器。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-29T08:25:47.693Z">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190123163207674.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjMzMDI1MQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:updated_time" content="2019-04-29T09:57:12.946Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="人生成长之开启大数据学习之旅">
-<meta name="twitter:description" content="开启在 若泽数据 的大数据学习之旅">
+<meta name="twitter:title" content="VIM编辑器常用命令详解（基础篇）">
+<meta name="twitter:description" content="一、vi/vim是什么Linux世界几乎所有的配置文件都是以纯文本形式存在的，而在所有的Linux发行版系统上都有vi编辑器，因此利用简单的文字编辑软件就能够轻松地修改系统的各种配置了，非常方便。vi就是一种功能强大的文本编辑器，而vim则是高级版的vi，不但可以用不同颜色显示文字内容，还能进行诸如shell脚本、C语言程序编辑等功能，可以作为程序编辑器。">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190123163207674.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjMzMDI1MQ==,size_16,color_FFFFFF,t_70">
   
     <link rel="alternative" href="/atom.xml" title="小海的博客" type="application/atom+xml">
   
@@ -159,33 +161,355 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-开启大数据学习之旅" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-VIM编辑器常用命令详解（基础篇）" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      人生成长之开启大数据学习之旅
+      VIM编辑器常用命令详解（基础篇）
     </h1>
   
 
         
-        <a href="/2019/01/17/开启大数据学习之旅/" class="archive-article-date">
-  	<time datetime="2019-01-17T08:03:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-17</time>
+        <a href="/2019/01/23/VIM编辑器常用命令详解（基础篇）/" class="archive-article-date">
+  	<time datetime="2019-01-23T08:54:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-23</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>开启在 若泽数据 的大数据学习之旅<br><a id="more"></a></p>
-<h2 id="如何学习大数据？"><a href="#如何学习大数据？" class="headerlink" title="如何学习大数据？"></a>如何学习大数据？</h2><ol>
-<li>搭建学习环境</li>
-<li>调整学习心态</li>
-<li>若泽数据阶段性学习目录<br>1）Linux<br>2）shell<br>3）MySql<br>4）SQL<br>5）Hadoop<br>6）Hive<br>7）离线项目<br>8）Python<br>9）人工智能</li>
-</ol>
-<h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><p>通过在若泽数据几个月的学习阶段，尽快了解并掌握互联网行业及大数据方向的专业知识。提高个人能力水平</p>
+        <p><strong>一、vi/vim是什么</strong><br>Linux世界几乎所有的配置文件都是以纯文本形式存在的，而在所有的Linux发行版系统上都有vi编辑器，因此利用简单的文字编辑软件就能够轻松地修改系统的各种配置了，非常方便。vi就是一种功能强大的文本编辑器，而vim则是高级版的vi，不但可以用不同颜色显示文字内容，还能进行诸如shell脚本、C语言程序编辑等功能，可以作为程序编辑器。<br><a id="more"></a></p>
+<h5 id="二、为什么要学习vi-vim？"><a href="#二、为什么要学习vi-vim？" class="headerlink" title="二、为什么要学习vi/vim？"></a>二、为什么要学习vi/vim？</h5><blockquote>
+<p>   首先所有的Linux发行版系统上都会默认内置vi编辑器，而不一定带有其他文本编辑器，非常通用；<br>其次，很多软件的编辑接口都会默认调用vi；<br>第三，vi具有程序编辑的能力；<br>最后，vi程序简单，编辑速度相当快速。\</p>
+</blockquote>
+<h5 id="三、vi的三种模式及各个模式之间的转换关系"><a href="#三、vi的三种模式及各个模式之间的转换关系" class="headerlink" title="三、vi的三种模式及各个模式之间的转换关系"></a>三、vi的三种模式及各个模式之间的转换关系</h5><p><img src="https://img-blog.csdnimg.cn/20190123163207674.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjMzMDI1MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h5 id="四、常用快捷方式"><a href="#四、常用快捷方式" class="headerlink" title="四、常用快捷方式"></a>四、常用快捷方式</h5><p><strong>1.光标移动</strong></p>
+<table>
+<thead>
+<tr>
+<th>按键</th>
+<th>光标动作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>h j k l ,  ← ↓ ↑ →</td>
+<td>移动一位，h j k l 代表左、下、上、右</td>
+</tr>
+<tr>
+<td>数字 0</td>
+<td>移至本行开头</td>
+</tr>
+<tr>
+<td>^</td>
+<td>移至本行第一个非空字符，匹配开头</td>
+</tr>
+<tr>
+<td>$</td>
+<td>移至本行结尾，可以包含空格</td>
+</tr>
+<tr>
+<td>w</td>
+<td>移至下一单词或标点的开头</td>
+</tr>
+<tr>
+<td>W</td>
+<td>移至下一单词开头，忽略标点</td>
+</tr>
+<tr>
+<td>b</td>
+<td>移至上一单词或标点开头</td>
+</tr>
+<tr>
+<td>B</td>
+<td>移至上一单词开头，忽略标点</td>
+</tr>
+<tr>
+<td>ctrl-f/PgDn</td>
+<td>下翻一页</td>
+</tr>
+<tr>
+<td>ctrl-b/PgUp</td>
+<td>上翻一页</td>
+</tr>
+<tr>
+<td>nG</td>
+<td>移至第n行</td>
+</tr>
+<tr>
+<td>G</td>
+<td>移至光标最后一行</td>
+</tr>
+<tr>
+<td>: n  enter键</td>
+<td>移至第n行</td>
+</tr>
+<tr>
+<td>n+</td>
+<td>向下跳n行</td>
+</tr>
+<tr>
+<td>n-</td>
+<td>向上跳n行</td>
+</tr>
+<tr>
+<td>H</td>
+<td>移至当前屏幕的第一行</td>
+</tr>
+<tr>
+<td>L</td>
+<td>移至当前屏幕的最后一行</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>注：许多vi的命令前面都可以缀上数字，前缀数字可以控制该命令执行的次数，比如5j可以使得光标向下移动5行。</p>
+</blockquote>
+<p><strong>2.基本编辑</strong></p>
+<table>
+<thead>
+<tr>
+<th>按键</th>
+<th>光标动作 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a</td>
+<td>在当前字符后插入文本</td>
+</tr>
+<tr>
+<td>A</td>
+<td>在行尾插入文本</td>
+</tr>
+<tr>
+<td>i</td>
+<td>在当前字符前插入文本</td>
+</tr>
+<tr>
+<td>I</td>
+<td>在行首插入文本</td>
+</tr>
+<tr>
+<td>o</td>
+<td>当前行下方插入新行并进入插入模式</td>
+</tr>
+<tr>
+<td>O</td>
+<td>当前行上方插入新行并进入插入模式</td>
+</tr>
+</tbody>
+</table>
+<p><strong>3. 删除和撤销</strong></p>
+<table>
+<thead>
+<tr>
+<th>按键</th>
+<th>光标动作 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td>删除当前字符（剪切）</td>
+</tr>
+<tr>
+<td>nx</td>
+<td>向后删除当前行在内的n个字符（剪切）</td>
+</tr>
+<tr>
+<td>dd</td>
+<td>删除（剪切）当前行</td>
+</tr>
+<tr>
+<td>ndd</td>
+<td>向下删除当前行在内的n行（剪切）</td>
+</tr>
+<tr>
+<td>dW</td>
+<td>删除当前字符到下一单词的起始处（删除整个单词）</td>
+</tr>
+<tr>
+<td>d$</td>
+<td>删除当前字符到当前行的末尾（剪切）</td>
+</tr>
+<tr>
+<td>d0</td>
+<td>删除当前字符到当前行的起始处（剪切）</td>
+</tr>
+<tr>
+<td>d^</td>
+<td>删除当前字符当当前行下一个非空字符（剪切）</td>
+</tr>
+<tr>
+<td>dG</td>
+<td>删除当前行到文件末尾（剪切）</td>
+</tr>
+<tr>
+<td>d20G</td>
+<td>删除当前行到文件第20行（d与定位符结合使用，x不行）（剪切）</td>
+</tr>
+<tr>
+<td>u</td>
+<td>撤销上一次操作</td>
+</tr>
+<tr>
+<td>nu</td>
+<td>撤销n次操作</td>
+</tr>
+<tr>
+<td>U</td>
+<td>撤销对当前行的所有操作</td>
+</tr>
+</tbody>
+</table>
+<p><strong>4.剪切、复制、粘贴</strong></p>
+<blockquote>
+<p>注意：x和d键实质上是剪切键，两者功能略有差异。y是复制键，p是粘贴键。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>键</th>
+<th>光标动作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>yy</td>
+<td>复制当前行</td>
+</tr>
+<tr>
+<td>5yy</td>
+<td>向下复制当前行在内的5行</td>
+</tr>
+<tr>
+<td>yw</td>
+<td>当前字符到下一单词的起始处</td>
+</tr>
+<tr>
+<td>y$</td>
+<td>当前字符到当前行的末尾</td>
+</tr>
+<tr>
+<td>y^</td>
+<td>当前字符到当前行下一个非空字符</td>
+</tr>
+<tr>
+<td>y0</td>
+<td>当前字符到当前行的行首</td>
+</tr>
+<tr>
+<td>yG</td>
+<td>当前行到文件末尾</td>
+</tr>
+<tr>
+<td>y20G</td>
+<td>当前行到文件第20行（用法和d完全一样，d实际就是剪切）</td>
+</tr>
+<tr>
+<td>p</td>
+<td>粘贴到当前字符（行）后面（下方）</td>
+</tr>
+<tr>
+<td>P</td>
+<td>粘贴到当前字符（行）前面（上方）</td>
+</tr>
+<tr>
+<td>J</td>
+<td>合并当前行和下一行为一行</td>
+</tr>
+<tr>
+<td>R</td>
+<td>替换模式，和windows下的insert模式差不多</td>
+</tr>
+<tr>
+<td>v</td>
+<td>进入选择模式（VISUAL），可以利用方向键选择字符，然后x、d剪切或者y复制</td>
+</tr>
+</tbody>
+</table>
+<p><strong>5.查找和替换</strong></p>
+<table>
+<thead>
+<tr>
+<th>键</th>
+<th>光标动作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fx（当前行内查找）</td>
+<td>光标移至本行下一处出现字符x的位置，输入分号重复上一次搜索</td>
+</tr>
+<tr>
+<td>/（搜索单词或短语）</td>
+<td>使用/命令后，屏幕底端会出现/，接下来输入要搜索的单词或短语，enter结束</td>
+</tr>
+<tr>
+<td>: s/old/new</td>
+<td>用new替换行中首次出现的old（:分号用于启动一条ex命令）</td>
+</tr>
+<tr>
+<td>: s/old/new/g</td>
+<td>用new替换行中所有的old</td>
+</tr>
+<tr>
+<td>:n,m s/old/new/g</td>
+<td>用new替换从n到m行里所有的old</td>
+</tr>
+<tr>
+<td>:%s/old/new/g</td>
+<td>用new替换当前文件里所有的old</td>
+</tr>
+<tr>
+<td>:set nu</td>
+<td>显示行号</td>
+</tr>
+<tr>
+<td>:set nonu</td>
+<td>取消显示行号</td>
+</tr>
+</tbody>
+</table>
+<p><strong>6.保存工作</strong></p>
+<table>
+<thead>
+<tr>
+<th>键</th>
+<th>光标动作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>:w</td>
+<td>仅保存文件</td>
+</tr>
+<tr>
+<td>:q</td>
+<td>退出文件，没有修改</td>
+</tr>
+<tr>
+<td>:q!</td>
+<td>放弃修改并退出文件</td>
+</tr>
+<tr>
+<td>:wq</td>
+<td>保存并退出文件</td>
+</tr>
+<tr>
+<td>:w file1</td>
+<td>文件另存为file1</td>
+</tr>
+<tr>
+<td>ZZ</td>
+<td>保存并退出文件</td>
+</tr>
+</tbody>
+</table>
 
       
 
@@ -199,15 +523,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Linux基础</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">若泽数据</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">基础</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
         		</li>
       		
 		</ul>
@@ -263,7 +587,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://IToceanxh.github.io/2019/01/17/开启大数据学习之旅/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://IToceanxh.github.io/2019/01/23/VIM编辑器常用命令详解（基础篇）/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -277,15 +601,20 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/01/17/VMware部署Linux系统/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/01/23/Linux基础命令二/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          阿里云环境准备
+          Linux基础命令二
         
       </div>
     </a>
   
+  
+    <a href="/2019/01/23/kill详解/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">kill详解</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -310,7 +639,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#如何学习大数据？"><span class="toc-number">1.</span> <span class="toc-text">如何学习大数据？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#目标"><span class="toc-number">2.</span> <span class="toc-text">目标</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#二、为什么要学习vi-vim？"><span class="toc-number">1.</span> <span class="toc-text">二、为什么要学习vi/vim？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#三、vi的三种模式及各个模式之间的转换关系"><span class="toc-number">2.</span> <span class="toc-text">三、vi的三种模式及各个模式之间的转换关系</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#四、常用快捷方式"><span class="toc-number">3.</span> <span class="toc-text">四、常用快捷方式</span></a></li></ol>
                     </div>
                 </span>
             </div>

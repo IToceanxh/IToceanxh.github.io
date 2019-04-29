@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://IToceanxh.github.io">
-  <title>人生成长之开启大数据学习之旅 | 小海的博客</title>
+  <title>MySQL基础一 | 小海的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="开启在 若泽数据 的大数据学习之旅">
-<meta name="keywords" content="若泽数据,基础,大数据">
+  <meta name="description" content="MySQL默认用户及密码修改MySQL数据库的集中登录方式及参数">
+<meta name="keywords" content="运维,若泽数据,MySQL">
 <meta property="og:type" content="article">
-<meta property="og:title" content="人生成长之开启大数据学习之旅">
-<meta property="og:url" content="http://IToceanxh.github.io/2019/01/17/开启大数据学习之旅/index.html">
+<meta property="og:title" content="MySQL基础一">
+<meta property="og:url" content="http://IToceanxh.github.io/2019/01/28/MySQL基础一/index.html">
 <meta property="og:site_name" content="小海的博客">
-<meta property="og:description" content="开启在 若泽数据 的大数据学习之旅">
+<meta property="og:description" content="MySQL默认用户及密码修改MySQL数据库的集中登录方式及参数">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-29T08:25:47.693Z">
+<meta property="og:updated_time" content="2019-04-29T10:26:54.891Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="人生成长之开启大数据学习之旅">
-<meta name="twitter:description" content="开启在 若泽数据 的大数据学习之旅">
+<meta name="twitter:title" content="MySQL基础一">
+<meta name="twitter:description" content="MySQL默认用户及密码修改MySQL数据库的集中登录方式及参数">
   
     <link rel="alternative" href="/atom.xml" title="小海的博客" type="application/atom+xml">
   
@@ -159,33 +159,39 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-开启大数据学习之旅" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-MySQL基础一" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      人生成长之开启大数据学习之旅
+      MySQL基础一
     </h1>
   
 
         
-        <a href="/2019/01/17/开启大数据学习之旅/" class="archive-article-date">
-  	<time datetime="2019-01-17T08:03:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-17</time>
+        <a href="/2019/01/28/MySQL基础一/" class="archive-article-date">
+  	<time datetime="2019-01-28T13:38:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-28</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>开启在 若泽数据 的大数据学习之旅<br><a id="more"></a></p>
-<h2 id="如何学习大数据？"><a href="#如何学习大数据？" class="headerlink" title="如何学习大数据？"></a>如何学习大数据？</h2><ol>
-<li>搭建学习环境</li>
-<li>调整学习心态</li>
-<li>若泽数据阶段性学习目录<br>1）Linux<br>2）shell<br>3）MySql<br>4）SQL<br>5）Hadoop<br>6）Hive<br>7）离线项目<br>8）Python<br>9）人工智能</li>
-</ol>
-<h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><p>通过在若泽数据几个月的学习阶段，尽快了解并掌握互联网行业及大数据方向的专业知识。提高个人能力水平</p>
+        <p>MySQL默认用户及密码修改<br>MySQL数据库的集中登录方式及参数</p>
+<a id="more"></a>
+<h6 id="使用空用户登录"><a href="#使用空用户登录" class="headerlink" title="使用空用户登录"></a>使用空用户登录</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop614 ~]# su - mysqladmin</span><br><span class="line">Last login: Sun Jan 27 18:22:49 CST 2019 on pts/0</span><br><span class="line">[mysqladmin@hadoop614 ~]$ mysql -h127.0.0.1</span><br><span class="line">Welcome to the MySQL monitor.  Commands end with ; or \g.</span><br><span class="line">Your MySQL connection id is 8</span><br><span class="line">Server version: 5.6.23-log MySQL Community Server (GPL)</span><br><span class="line"></span><br><span class="line">Copyright (c) 2000, 2015, Oracle and/or its affiliates. All rights reserved.</span><br><span class="line"></span><br><span class="line">Oracle is a registered trademark of Oracle Corporation and/or its</span><br><span class="line">affiliates. Other names may be trademarks of their respective</span><br><span class="line">owners.</span><br><span class="line"></span><br><span class="line">Type &apos;help;&apos; or &apos;\h&apos; for help. Type &apos;\c&apos; to clear the current input statement.</span><br><span class="line"></span><br><span class="line">mysql&gt; exit</span><br><span class="line">Bye</span><br></pre></td></tr></table></figure>
+<h6 id="使用空用户登录-1"><a href="#使用空用户登录-1" class="headerlink" title="使用空用户登录"></a>使用空用户登录</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[mysqladmin@hadoop614 ~]$ mysql -uroot -p -h127.0.0.1</span><br><span class="line">Enter password: </span><br><span class="line">Welcome to the MySQL monitor.  Commands end with ; or \g.</span><br><span class="line">Your MySQL connection id is 9</span><br><span class="line">Server version: 5.6.23-log MySQL Community Server (GPL)</span><br><span class="line"></span><br><span class="line">Copyright (c) 2000, 2015, Oracle and/or its affiliates. All rights reserved.</span><br><span class="line"></span><br><span class="line">Oracle is a registered trademark of Oracle Corporation and/or its</span><br><span class="line">affiliates. Other names may be trademarks of their respective</span><br><span class="line">owners.</span><br><span class="line"></span><br><span class="line">Type &apos;help;&apos; or &apos;\h&apos; for help. Type &apos;\c&apos; to clear the current input statement.</span><br><span class="line"></span><br><span class="line">mysql&gt; exit</span><br><span class="line">Bye</span><br></pre></td></tr></table></figure>
+<h6 id="删除空用户，设置root密码"><a href="#删除空用户，设置root密码" class="headerlink" title="删除空用户，设置root密码"></a>删除空用户，设置root密码</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">## 查询数据库</span><br><span class="line">mysql&gt; show databases;</span><br><span class="line">## 切换数据库</span><br><span class="line">mysql&gt; use mysql</span><br><span class="line">## 查询数据库表</span><br><span class="line">mysql&gt; show tables;</span><br><span class="line">## 查询表数据</span><br><span class="line">mysql&gt; select user,password,host from user；</span><br><span class="line">+------+----------+-----------+</span><br><span class="line">| user | password | host      |</span><br><span class="line">+------+----------+-----------+</span><br><span class="line">| root |          | localhost |</span><br><span class="line">| root |          | hadoop614 |</span><br><span class="line">| root |          | 127.0.0.1 |</span><br><span class="line">| root |          | ::1       |</span><br><span class="line">|      |          | localhost |</span><br><span class="line">|      |          | hadoop614 |</span><br><span class="line">+------+----------+-----------+</span><br><span class="line">6 rows in set (0.00 sec)</span><br><span class="line">## 删除空用户</span><br><span class="line">mysql&gt; delete from user where user = &apos;&apos;;</span><br><span class="line">Query OK, 2 rows affected (0.00 sec)</span><br><span class="line">## 更新root用户密码</span><br><span class="line">mysql&gt; update user set password=password(123456) where user=&apos;root&apos;;</span><br><span class="line">Query OK, 4 rows affected (0.00 sec)</span><br><span class="line">Rows matched: 4  Changed: 4  Warnings: 0</span><br><span class="line">## 查询表数据</span><br><span class="line">mysql&gt; select user,password,host from user；</span><br><span class="line">+------+-------------------------------------------+-----------+</span><br><span class="line">| user | password                                  | host      |</span><br><span class="line">+------+-------------------------------------------+-----------+</span><br><span class="line">| root | *6BB4837EB74329105EE4568DDA7DC67ED2CA2AD9 | localhost |</span><br><span class="line">| root | *6BB4837EB74329105EE4568DDA7DC67ED2CA2AD9 | hadoop614 |</span><br><span class="line">| root | *6BB4837EB74329105EE4568DDA7DC67ED2CA2AD9 | 127.0.0.1 |</span><br><span class="line">| root | *6BB4837EB74329105EE4568DDA7DC67ED2CA2AD9 | ::1       |</span><br><span class="line">+------+-------------------------------------------+-----------+</span><br><span class="line">4 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>#针对用户 权限的操作语句 养成习惯 都最后一步执行刷新权限<br>flush privileges;</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; flush privileges;</span><br><span class="line">Query OK, 0 rows affected (0.00 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; exit</span><br><span class="line">Bye</span><br></pre></td></tr></table></figure>
+<h6 id="重新登录数据库"><a href="#重新登录数据库" class="headerlink" title="重新登录数据库"></a>重新登录数据库</h6><p>不输入密码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[mysqladmin@hadoop614 ~]$ mysql -uroot -p -h127.0.0.1</span><br><span class="line">Enter password: </span><br><span class="line">ERROR 1045 (28000): Access denied for user &apos;root&apos;@&apos;localhost&apos; (using password: NO)</span><br></pre></td></tr></table></figure></p>
+<p>正常输入密码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">[mysqladmin@hadoop614 ~]$ mysql -uroot -p -h127.0.0.1</span><br><span class="line">Enter password: </span><br><span class="line">ERROR 1045 (28000): Access denied for user &apos;root&apos;@&apos;localhost&apos; (using password: YES)</span><br><span class="line">[mysqladmin@hadoop614 ~]$ mysql -uroot -p -h127.0.0.1</span><br><span class="line">Enter password: </span><br><span class="line">Welcome to the MySQL monitor.  Commands end with ; or \g.</span><br><span class="line">Your MySQL connection id is 16</span><br><span class="line">Server version: 5.6.23-log MySQL Community Server (GPL)</span><br><span class="line"></span><br><span class="line">Copyright (c) 2000, 2015, Oracle and/or its affiliates. All rights reserved.</span><br><span class="line"></span><br><span class="line">Oracle is a registered trademark of Oracle Corporation and/or its</span><br><span class="line">affiliates. Other names may be trademarks of their respective</span><br><span class="line">owners.</span><br><span class="line"></span><br><span class="line">Type &apos;help;&apos; or &apos;\h&apos; for help. Type &apos;\c&apos; to clear the current input statement.</span><br><span class="line"></span><br><span class="line">mysql&gt;</span><br></pre></td></tr></table></figure></p>
+<h6 id="添加用户MySql环境变量"><a href="#添加用户MySql环境变量" class="headerlink" title="添加用户MySql环境变量"></a>添加用户MySql环境变量</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">[mysqladmin@hadoop614 ~]$ vi .bash_profile</span><br><span class="line"># .bash_profile</span><br><span class="line"></span><br><span class="line"># Get the aliases and functions</span><br><span class="line">if [ -f ~/.bashrc ]; then</span><br><span class="line">        . ~/.bashrc</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line"># User specific environment and startup programs</span><br><span class="line"></span><br><span class="line">PATH=$PATH:$HOME/.local/bin:$HOME/bin</span><br><span class="line">         </span><br><span class="line">MYSQL_HOME=/usr/local/mysql</span><br><span class="line">PATH=$&#123;MYSQL_HOME&#125;/bin:$&#123;PATH&#125;   </span><br><span class="line">export PATH</span><br><span class="line">PS1=`uname -n`&quot;:&quot;&apos;$USER&apos;&quot;:&quot;&apos;$PWD&apos;&quot;:&gt;&quot;; export PS1</span><br><span class="line">:wq!</span><br></pre></td></tr></table></figure>
+<p>刷新环境变量：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[mysqladmin@hadoop614 ~]$ source .bash_profile</span><br><span class="line">hadoop614:mysqladmin:/usr/local/mysql:&gt;</span><br></pre></td></tr></table></figure></p>
 
       
 
@@ -199,15 +205,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">若泽数据</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">基础</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
         		</li>
       		
 		</ul>
@@ -263,7 +269,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://IToceanxh.github.io/2019/01/17/开启大数据学习之旅/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://IToceanxh.github.io/2019/01/28/MySQL基础一/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -277,15 +283,20 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/01/17/VMware部署Linux系统/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/03/02/搭建hdfs伪分部署/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          阿里云环境准备
+          搭建hdfs伪分部署
         
       </div>
     </a>
   
+  
+    <a href="/2019/01/28/部署MySQL数据库/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">部署MySQL数据库</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -310,7 +321,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#如何学习大数据？"><span class="toc-number">1.</span> <span class="toc-text">如何学习大数据？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#目标"><span class="toc-number">2.</span> <span class="toc-text">目标</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-6"><a class="toc-link" href="#使用空用户登录"><span class="toc-number">1.</span> <span class="toc-text">使用空用户登录</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#使用空用户登录-1"><span class="toc-number">2.</span> <span class="toc-text">使用空用户登录</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#删除空用户，设置root密码"><span class="toc-number">3.</span> <span class="toc-text">删除空用户，设置root密码</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#重新登录数据库"><span class="toc-number">4.</span> <span class="toc-text">重新登录数据库</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#添加用户MySql环境变量"><span class="toc-number">5.</span> <span class="toc-text">添加用户MySql环境变量</span></a></li></ol>
                     </div>
                 </span>
             </div>
