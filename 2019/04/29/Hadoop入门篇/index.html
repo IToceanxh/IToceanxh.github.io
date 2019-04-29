@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://IToceanxh.github.io">
   <title>Hadoop入门篇 | 小海的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="什么是Hadoop？">
+  <meta name="description" content="问：什么是Hadoop？答：  从广义上来讲，是以Apache Hadoop软件为中心的生态圈，包括但不限于：hive、zookeeper、spark、hbase等 从狭义上讲，就是 Apache Hadoop软件">
 <meta name="keywords" content="若泽数据,大数据,基础">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hadoop入门篇">
 <meta property="og:url" content="http://IToceanxh.github.io/2019/04/29/Hadoop入门篇/index.html">
 <meta property="og:site_name" content="小海的博客">
-<meta property="og:description" content="什么是Hadoop？">
+<meta property="og:description" content="问：什么是Hadoop？答：  从广义上来讲，是以Apache Hadoop软件为中心的生态圈，包括但不限于：hive、zookeeper、spark、hbase等 从狭义上讲，就是 Apache Hadoop软件">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-29T10:47:59.130Z">
+<meta property="og:updated_time" content="2019-04-29T13:55:25.676Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hadoop入门篇">
-<meta name="twitter:description" content="什么是Hadoop？">
+<meta name="twitter:description" content="问：什么是Hadoop？答：  从广义上来讲，是以Apache Hadoop软件为中心的生态圈，包括但不限于：hive、zookeeper、spark、hbase等 从狭义上讲，就是 Apache Hadoop软件">
   
     <link rel="alternative" href="/atom.xml" title="小海的博客" type="application/atom+xml">
   
@@ -179,8 +179,32 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>什么是Hadoop？</p>
-
+        <p>问：什么是Hadoop？<br>答：</p>
+<ol>
+<li>从广义上来讲，是以Apache Hadoop软件为中心的生态圈，包括但不限于：hive、zookeeper、spark、hbase等</li>
+<li>从狭义上讲，就是 Apache Hadoop软件</li>
+</ol>
+<a id="more"></a>
+<ul>
+<li>Hadoop 是Apache基金会下一个开源的分布式计算平台，它以分布式文件系统HDFS和MapReduce算法为核心，为用户提供了系统底层细节透明的分布式基础架构。</li>
+</ul>
+<p>优点：Hadoop是一个开源框架，可编写和运行分布式应用来处理大规模数据，分布式计算是一个不断变化且宽泛的领域，优点如下：</p>
+<pre><code>1. 易用性。Hadoop运行在由一般商用机器构成的大型集群上。
+2. 可靠性。Hadoop致力于一般商用机器上，其架构假设硬件会频繁出现失效，它可以从容处理大多数此类故障。
+3. 可扩展。Hadoop通过增加集群节点，可以线性地拓展以处理更大数据集。
+4. 简单。Hadoop允许用户快速的编写出高效地并行代码。
+</code></pre><p>比较Hadoop和SQL数据库</p>
+<pre><code>从总体上看，现在大多数数据应用处理的主力是关系型数据库，即SQL面向的是结构化的数据，而Hadoop则针对的是非结构化的数据，从这一角度看，Hadoop提供了对数据处理的一种更为通用的方式。
+下面，我们从特定的视角将Hadoop与SQL数据库做详细比较：
+ 1. 用scale-out代替scale-up
+    拓展商用服务器的代价是非常昂贵的。要运行一个更大的数据库，就要一个更大的服务器，事实上，各服务器厂商往往会把其昂贵的高端机标称为“数据库级服务器”，不过有时候有可能需要处理更大的数据集，但却找不到更大的机器，而更为重要的是，高端机对于许多应用并不经济。
+ 2.用键值对代替关系表
+    关系型数据库需要将数据按照某种模式存放到具有关系型数据结构表中，但是许多当前的数据模型并不能很好的适应这些模型，如文本、图片、xml等，此外，大型数据集往往是非结构化或半结构化的。而Hadoop以键值对作为最基本的数据单元，能够灵活的处理较少结构化的数据类型。
+ 3.用函数式编程（MapReduce）代替声明式查询（SQL）
+    SQL从根本上说是一个高级声明式语言，它的手段是声明你想要的结果，并让数据库引擎判断如何获取数据。而在MapReduce程序中，实际的数据处理步骤是由你指定的。SQL使用查询语句，而MapReduce使用程序和脚本。MapReduce还可以建立复杂的数据统计模型，或者改变图像数据的处理格式。
+ 4.用离线批量处理代替在线处理
+    Hadoop并不适合处理那种对几条记录读写的在线事务处理模式，而适合一次写入多次读取的数据需求。
+</code></pre>
       
 
       
