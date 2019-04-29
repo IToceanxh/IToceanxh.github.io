@@ -46,7 +46,7 @@
 			<img src="/assets/img/head.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">小海</a></h1>
+		  <h1 class="header-author"><a href="/">Harm灬小海</a></h1>
 		</hgroup>
 		
 		<p class="header-subtitle">人生苦短，及时行乐</p>
@@ -106,7 +106,7 @@
 				<img src="/assets/img/head.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">小海</h1>
+			  <h1 class="header-author js-header-author">Harm灬小海</h1>
 			</hgroup>
 			
 			<p class="header-subtitle"><i class="icon icon-quo-left"></i>人生苦短，及时行乐<i class="icon icon-quo-right"></i></p>
@@ -156,6 +156,93 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-20190429232629" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/02/20190429232629/">以hostname启动hadoop伪分布式</a>
+    </h1>
+  
+
+        
+        <a href="/2019/03/02/20190429232629/" class="archive-article-date">
+  	<time datetime="2019-03-02T03:22:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><p><strong>搭建hdfs伪分部署</strong> ： <a href="https://itoceanxh.github.io/2019/03/02/%E6%90%AD%E5%BB%BAhdfs%E4%BC%AA%E5%88%86%E9%83%A8%E7%BD%B2/">点击跳转</a></p>
+</li>
+<li><p>通过《搭建hdfs伪分部署》，在启动阶段发现：namenode、namenode、secondarynamenode是以localhost和0.0.0.0启动的；<br>本片文章要实现的是以hostname来启动进程;<br>因为在日常生产中均以hostname来部署启动，具体方便在哪里，后面体会吧、<br><code>su - hadoop</code></p>
+</li>
+</ul>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">若泽数据</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">基础</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/02/20190429232629/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-搭建hdfs伪分部署" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -177,7 +264,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <ul>
-<li>软件版本</li>
+<li><strong>软件版本</strong></li>
 </ul>
 <table>
 <thead>
@@ -195,14 +282,12 @@
 </tr>
 </tbody>
 </table>
-<ul>
-<li>部署JDK飞机票：<a href="https://itoceanxh.github.io/2019/03/02/Linux%E9%83%A8%E7%BD%B2jdk/">点击跳转</a></li>
-<li>配置ssh无密码访问localhost：<a href="https://itoceanxh.github.io/2019/03/02/%E9%85%8D%E7%BD%AEssh%E6%97%A0%E5%AF%86%E7%A0%81%E8%AE%BF%E9%97%AElocalhost/">点击跳转</a>
+<p><strong>部署JDK飞机票：</strong><a href="https://itoceanxh.github.io/2019/03/02/Linux%E9%83%A8%E7%BD%B2jdk/">点击跳转</a><br><strong>配置ssh无密码访问localhost：</strong><a href="https://itoceanxh.github.io/2019/03/02/%E9%85%8D%E7%BD%AEssh%E6%97%A0%E5%AF%86%E7%A0%81%E8%AE%BF%E9%97%AElocalhost/">点击跳转</a></p>
         
       
 
       
-    </li></ul></div>
+    </div>
     <div class="article-info article-info-index">
       
       
@@ -272,7 +357,7 @@
 
         
         <a href="/2019/03/02/Hadoop入门篇/" class="archive-article-date">
-  	<time datetime="2019-03-02T02:35:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-02</time>
+  	<time datetime="2019-03-02T02:35:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-02</time>
 </a>
         
       </header>
@@ -358,7 +443,7 @@
 
         
         <a href="/2019/03/02/Linux部署jdk/" class="archive-article-date">
-  	<time datetime="2019-03-02T02:35:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-02</time>
+  	<time datetime="2019-03-02T02:35:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-02</time>
 </a>
         
       </header>
@@ -567,11 +652,11 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
         		</li>
       		
 		</ul>
@@ -649,11 +734,11 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Linux基础</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Linux基础</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -735,11 +820,11 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Linux基础</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Linux基础</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
         		</li>
       		
 		</ul>
@@ -817,11 +902,11 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Linux基础</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Linux基础</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
         		</li>
       		
 		</ul>
@@ -899,11 +984,11 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Linux基础</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Linux基础</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
         		</li>
       		
 		</ul>
@@ -914,88 +999,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/01/23/VIM编辑器常用命令详解（基础篇）/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-kill详解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/23/kill详解/">kill详解</a>
-    </h1>
-  
-
-        
-        <a href="/2019/01/23/kill详解/" class="archive-article-date">
-  	<time datetime="2019-01-23T07:58:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>简单描述 Linux 系统的 <code>kill</code> 命令</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">若泽数据</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Linux基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/01/23/kill详解/">展开全文 >></a>
         </p>
       
 
@@ -1039,7 +1042,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2019 小海
+    		&copy; 2019 Harm灬小海
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -1134,7 +1137,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+                <a href="javascript:void(0)" class="js-tag color3">Linux基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1142,7 +1145,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Linux基础</a>
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1198,7 +1201,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
         <ul class="search-ul">
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接1</a>
+              <a href="http://blog.itpub.net/30089851/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>若泽数据 J总</a>
             </li>
           
             <li class="search-li">
