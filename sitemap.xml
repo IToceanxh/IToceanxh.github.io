@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://IToceanxh.github.io/2019/03/02/Hadoop%E5%85%A5%E9%97%A8%E7%AF%87/</loc>
+    
+    <lastmod>2019-04-30T21:19:23.665Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://IToceanxh.github.io/categories/index.html</loc>
+    
+    <lastmod>2019-04-30T21:16:20.129Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://IToceanxh.github.io/tags/index.html</loc>
+    
+    <lastmod>2019-04-30T21:16:13.434Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://IToceanxh.github.io/2019/01/17/VMware%E9%83%A8%E7%BD%B2Linux%E7%B3%BB%E7%BB%9F/</loc>
     
     <lastmod>2019-04-30T21:09:24.385Z</lastmod>
@@ -131,27 +152,6 @@
     <loc>http://IToceanxh.github.io/2019/01/23/Linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4%E4%BA%8C/</loc>
     
     <lastmod>2019-04-30T21:09:24.338Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://IToceanxh.github.io/2019/03/02/Hadoop%E5%85%A5%E9%97%A8%E7%AF%87/</loc>
-    
-    <lastmod>2019-04-30T21:09:24.333Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://IToceanxh.github.io/categories/index.html</loc>
-    
-    <lastmod>2019-04-30T18:35:08.378Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://IToceanxh.github.io/tags/index.html</loc>
-    
-    <lastmod>2019-04-30T18:34:04.430Z</lastmod>
     
   </url>
   

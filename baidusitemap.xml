@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://IToceanxh.github.io/2019/03/02/Hadoop%E5%85%A5%E9%97%A8%E7%AF%87/</loc>
+    <lastmod>2019-04-30</lastmod>
+  </url>  <url>
     <loc>http://IToceanxh.github.io/2019/01/17/VMware%E9%83%A8%E7%BD%B2Linux%E7%B3%BB%E7%BB%9F/</loc>
     <lastmod>2019-04-30</lastmod>
   </url>  <url>
@@ -56,9 +59,6 @@
     <lastmod>2019-04-30</lastmod>
   </url>  <url>
     <loc>http://IToceanxh.github.io/2019/01/23/Linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4%E4%BA%8C/</loc>
-    <lastmod>2019-04-30</lastmod>
-  </url>  <url>
-    <loc>http://IToceanxh.github.io/2019/03/02/Hadoop%E5%85%A5%E9%97%A8%E7%AF%87/</loc>
     <lastmod>2019-04-30</lastmod>
   </url>
 </urlset>
