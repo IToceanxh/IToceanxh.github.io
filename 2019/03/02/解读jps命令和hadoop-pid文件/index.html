@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="若泽数据,大数据,基础,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="jps命令的真相首先我们先看jps命令的位置12$ which jps/usr/java/jdk1.8.0_45/bin/jps   我们发现jps命令实在java目录下，说明jps是java JDK中的一个命令；jps查看的时当前用户运行的java进程">
+<meta name="keywords" content="若泽数据,大数据,基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="解读jps命令和hadoop pid文件">
+<meta property="og:url" content="http://IToceanxh.github.io/2019/03/02/解读jps命令和hadoop-pid文件/index.html">
+<meta property="og:site_name" content="小海的博客">
+<meta property="og:description" content="jps命令的真相首先我们先看jps命令的位置12$ which jps/usr/java/jdk1.8.0_45/bin/jps   我们发现jps命令实在java目录下，说明jps是java JDK中的一个命令；jps查看的时当前用户运行的java进程">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-04-30T13:48:07.646Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="解读jps命令和hadoop pid文件">
+<meta name="twitter:description" content="jps命令的真相首先我们先看jps命令的位置12$ which jps/usr/java/jdk1.8.0_45/bin/jps   我们发现jps命令实在java目录下，说明jps是java JDK中的一个命令；jps查看的时当前用户运行的java进程">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"always","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://IToceanxh.github.io/2019/03/02/解读jps命令和hadoop-pid文件/">
+
+
+
+
+
+  <title>解读jps命令和hadoop pid文件 | 小海的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-always page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小海的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">人生苦短，及时行乐</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-全部文章">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            全部文章
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-归档">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://IToceanxh.github.io/2019/03/02/解读jps命令和hadoop-pid文件/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Harm灬小海">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小海的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">解读jps命令和hadoop pid文件</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-02T12:41:22+08:00">
+                2019-03-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <ul>
+<li>jps命令的真相<br>首先我们先看jps命令的位置<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ which jps</span><br><span class="line">/usr/java/jdk1.8.0_45/bin/jps</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>我们发现jps命令实在java目录下，说明jps是java JDK中的一个命令；<br>jps查看的时当前用户运行的java进程<br><a id="more"></a></p>
+<ul>
+<li><p>对应进程的表示文件位置<br>哪个用户起的java进程，其对应的进程表示文件在<code>/tmp/hsperfdata_${USER}</code>目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">[hadoop@hadoop614 ~]$ cd /tmp/hsperfdata_$&#123;USER&#125;</span><br><span class="line">[hadoop@hadoop614 hsperfdata_hadoop]$ ll</span><br><span class="line">总用量 192</span><br><span class="line">-rw-------. 1 hadoop hadoop 32768 4月  30 20:28 27874</span><br><span class="line">-rw-------. 1 hadoop hadoop 32768 4月  30 20:29 27994</span><br><span class="line">-rw-------. 1 hadoop hadoop 32768 4月  30 20:29 28235</span><br><span class="line">-rw-------. 1 hadoop hadoop 32768 4月  30 20:29 28451</span><br><span class="line">-rw-------. 1 hadoop hadoop 32768 4月  30 20:29 28576</span><br><span class="line">-rw-------. 1 hadoop hadoop 32768 4月  30 20:28 28632</span><br><span class="line">[hadoop@hadoop614 hsperfdata_hadoop]$ jps</span><br><span class="line">28576 NodeManager</span><br><span class="line">27874 NameNode</span><br><span class="line">29154 Jps</span><br><span class="line">28451 ResourceManager</span><br><span class="line">28632 RunJar</span><br><span class="line">27994 DataNode</span><br><span class="line">28235 SecondaryNameNode</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>那么root作为超级用户，权限最高的用户，理论上root应该可以查看所有用户下的进程，以root执行 jps 命令的结果是什么呢</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop614 ~]# jps</span><br><span class="line">29248 Jps</span><br><span class="line">28576 -- process information unavailable</span><br><span class="line">27874 -- process information unavailable</span><br><span class="line">28451 -- process information unavailable</span><br><span class="line">28632 -- process information unavailable</span><br><span class="line">27994 -- process information unavailable</span><br><span class="line">28235 -- process information unavailable</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>我们可以看到使用root用户执行结果的进程数和pid与hadoop用户执行结果一致，但是进程名称却显示为<code>process information unavailable</code>,是不用状态；<br>因此，当我门需要以root用户来判断进程是否正常时，需要以<code>ps -ef</code>返回结果为准，以hadoop进程为例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop614 ~]# ps -ef | grep namenode &amp;&amp; grep dataname</span><br><span class="line">hadoop   27874     1  4 20:28 ?        00:00:24 /usr/java/jdk1.8.0_45/bin/java -Dproc_namenode -Xmx1000m -Djava.net.preferIPv4Stack=true -Dhadoop.log.dir=/home/hadoop/app/hadoop-2.6.0-cdh5.7.0/logs -Dhadoop.log.file=hadoop.log -Dhadoop.home.dir=/home/hadoop/app/hadoop-2.6.0-cdh5.7.0 -Dhadoop.id.str=hadoop -Dhadoop.root.logger=INFO,console -Djava.library.path=/home/hadoop/app/hadoop-2.6.0-cdh5.7.0/lib/native -Dhadoop.policy.file=hadoop-policy.xml -Djava.net.preferIPv4Stack=true -Djava.net.preferIPv4Stack=true -Djava.net.preferIPv4Stack=true -Dhadoop.log.dir=/home/hadoop/app/hadoop-2.6.0-cdh5.7.0/logs -Dhadoop.log.file=hadoop-hadoop-namenode-hadoop614.log -Dhadoop.home.dir=/home/hadoop/app/hadoop-2.6.0-cdh5.7.0 -Dhadoop.id.str=hadoop -Dhadoop.root.logger=INFO,RFA -Djava.library.path=/home/hadoop/app/hadoop-2.6.0-cdh5.7.0/lib/native -Dhadoop.policy.file=hadoop-policy.xml -Djava.net.preferIPv4Stack=true -Dhadoop.security.logger=INFO,RFAS -Dhdfs.audit.logger=INFO,NullAppender -Dhadoop.security.logger=INFO,RFAS -Dhdfs.audit.logger=INFO,NullAppender -Dhadoop.security.logger=INFO,RFAS -Dhdfs.audit.logger=INFO,NullAppender -Dhadoop.security.logger=INFO,RFAS org.apache.hadoop.hdfs.server.namenode.NameNode</span><br><span class="line">hadoop   28235     1  2 20:28 ?        00:00:16 /usr/java/jdk1.8.0_45/bin/java -Dproc_secondarynamenode -Xmx1000m -Djava.net.preferIPv4Stack=true -Dhadoop.log.dir=/home/hadoop/app/hadoop-2.6.0-cdh5.7.0/logs -Dhadoop.log.file=hadoop.log -Dhadoop.home.dir=/home/hadoop/app/hadoop-2.6.0-cdh5.7.0 -Dhadoop.id.str=hadoop -Dhadoop.root.logger=INFO,console -Djava.library.path=/home/hadoop/app/hadoop-2.6.0-cdh5.7.0/lib/native -Dhadoop.policy.file=hadoop-policy.xml -Djava.net.preferIPv4Stack=true -Djava.net.preferIPv4Stack=true -Djava.net.preferIPv4Stack=true -Dhadoop.log.dir=/home/hadoop/app/hadoop-2.6.0-cdh5.7.0/logs -Dhadoop.log.file=hadoop-hadoop-secondarynamenode-hadoop614.log -Dhadoop.home.dir=/home/hadoop/app/hadoop-2.6.0-cdh5.7.0 -Dhadoop.id.str=hadoop -Dhadoop.root.logger=INFO,RFA -Djava.library.path=/home/hadoop/app/hadoop-2.6.0-cdh5.7.0/lib/native -Dhadoop.policy.file=hadoop-policy.xml -Djava.net.preferIPv4Stack=true -Dhadoop.security.logger=INFO,RFAS -Dhdfs.audit.logger=INFO,NullAppender -Dhadoop.security.logger=INFO,RFAS -Dhdfs.audit.logger=INFO,NullAppender -Dhadoop.security.logger=INFO,RFAS -Dhdfs.audit.logger=INFO,NullAppender -Dhadoop.security.logger=INFO,RFAS org.apache.hadoop.hdfs.server.namenode.SecondaryNameNode</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>当我们以root权限kill hadoop进程后可能发生的现象<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop614 ~]# kill -9 28576</span><br><span class="line">[root@hadoop614 ~]# ps -ef | grep 28576</span><br><span class="line">root     29407 29228  0 20:41 pts/1    00:00:00 grep 28576</span><br><span class="line">[root@hadoop614 ~]# jps</span><br><span class="line">29408 Jps</span><br><span class="line">28576 -- process information unavailable</span><br><span class="line">27874 -- process information unavailable</span><br><span class="line">28451 -- process information unavailable</span><br><span class="line">28632 -- process information unavailable</span><br><span class="line">27994 -- process information unavailable</span><br><span class="line">28235 -- process information unavailable</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>我们发现使用root用户强制kill hadoop进程后，进程已经不存在，但是jps命令依然可以查到<br>那么看下jps命令pid存放路径<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop614 ~]# ll /tmp/hsperfdata_hadoop</span><br><span class="line">总用量 192</span><br><span class="line">-rw-------. 1 hadoop hadoop 32768 4月  30 20:42 27874</span><br><span class="line">-rw-------. 1 hadoop hadoop 32768 4月  30 20:42 27994</span><br><span class="line">-rw-------. 1 hadoop hadoop 32768 4月  30 20:42 28235</span><br><span class="line">-rw-------. 1 hadoop hadoop 32768 4月  30 20:42 28451</span><br><span class="line">-rw-------. 1 hadoop hadoop 32768 4月  30 20:40 28576</span><br><span class="line">-rw-------. 1 hadoop hadoop 32768 4月  30 20:42 28632</span><br></pre></td></tr></table></figure></p>
+<p>发现28576进程的文件依然存在，尝试删除此文件；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop614 ~]# rm -f /tmp/hsperfdata_hadoop/28576 </span><br><span class="line">[root@hadoop614 ~]# ll /tmp/hsperfdata_hadoop</span><br><span class="line">总用量 160</span><br><span class="line">-rw-------. 1 hadoop hadoop 32768 4月  30 20:44 27874</span><br><span class="line">-rw-------. 1 hadoop hadoop 32768 4月  30 20:44 27994</span><br><span class="line">-rw-------. 1 hadoop hadoop 32768 4月  30 20:44 28235</span><br><span class="line">-rw-------. 1 hadoop hadoop 32768 4月  30 20:44 28451</span><br><span class="line">-rw-------. 1 hadoop hadoop 32768 4月  30 20:44 28632</span><br><span class="line">[root@hadoop614 ~]# jps</span><br><span class="line">27874 -- process information unavailable</span><br><span class="line">28451 -- process information unavailable</span><br><span class="line">29464 Jps</span><br><span class="line">28632 -- process information unavailable</span><br><span class="line">27994 -- process information unavailable</span><br><span class="line">28235 -- process information unavailable</span><br></pre></td></tr></table></figure></p>
+<p>发现jps中进程已经不存在，说明使用root用户kill掉jps进程时，还需要删除相应目录下的pid文件，否则jps查询时次pid仍然存在，而hadoop启动和停止时会校验这个文件，核能到时hadoop集群启动失败</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/若泽数据/" rel="tag"># 若泽数据</a>
+          
+            <a href="/tags/大数据/" rel="tag"># 大数据</a>
+          
+            <a href="/tags/基础/" rel="tag"># 基础</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/02/以hostname启动hadoop伪分布式/" rel="next" title="以hostname启动hadoop伪分布式">
+                <i class="fa fa-chevron-left"></i> 以hostname启动hadoop伪分布式
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/02/Yarn伪分布式部署/" rel="prev" title="Yarn伪分布式部署">
+                Yarn伪分布式部署 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/head.jpg" alt="Harm灬小海">
+            
+              <p class="site-author-name" itemprop="name">Harm灬小海</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="lhf_sum@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/IToceanxh" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.itpub.net/30089851/" title="J总" target="_blank">J总</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; Thu Jan 10 2019 08:00:00 GMT+0800 (GMT+08:00) &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Harm灬小海</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
