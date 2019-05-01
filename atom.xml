@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://IToceanxh.github.io/"/>
-  <updated>2019-05-01T11:23:26.352Z</updated>
+  <updated>2019-05-01T11:24:03.304Z</updated>
   <id>http://IToceanxh.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://IToceanxh.github.io/2019/04/06/%E4%BC%81%E4%B8%9A%E7%BA%A7%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B/"/>
     <id>http://IToceanxh.github.io/2019/04/06/企业级项目开发流程/</id>
     <published>2019-04-06T00:17:58.000Z</published>
-    <updated>2019-05-01T11:23:26.352Z</updated>
+    <updated>2019-05-01T11:24:03.304Z</updated>
     
     <content type="html"><![CDATA[<h3 id="项目调研"><a href="#项目调研" class="headerlink" title="项目调研"></a>项目调研</h3><ul><li>从业务角度出发对项目进行调研</li><li>人员：专业产品经理、非常熟悉业务的人员、项目经理等</li></ul><a id="more"></a><h3 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h3><ul><li>需求分析阶段是不需要关系如何实现的，主要明确要做什么，要做成什么样子的</li><li>用户提出的显式的需求</li><li>项目中可能隐藏的需求 ： 一般由技术人员提出</li></ul>]]></content>
     
@@ -46,7 +46,7 @@
     <link href="http://IToceanxh.github.io/2019/04/05/%E5%9F%BA%E4%BA%8EHadoop%E7%94%9F%E6%80%81%E7%A6%BB%E7%BA%BF%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90%E9%A1%B9%E7%9B%AE--%E5%88%86%E6%9E%90/"/>
     <id>http://IToceanxh.github.io/2019/04/05/基于Hadoop生态离线日志分析项目--分析/</id>
     <published>2019-04-05T12:39:37.000Z</published>
-    <updated>2019-05-01T11:08:55.152Z</updated>
+    <updated>2019-05-01T11:24:03.307Z</updated>
     
     <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><ul><li>开始进入若泽数据学习进阶阶段，在进阶阶段均以生产项目实战为出发点，首先来学习基于hadoop生态圈的离线日志分析</li></ul><a id="more"></a><h3 id="相关知识点"><a href="#相关知识点" class="headerlink" title="相关知识点"></a>相关知识点</h3><h4 id="Hadoop"><a href="#Hadoop" class="headerlink" title="Hadoop"></a>Hadoop</h4><ul><li>hdfs 存储</li><li>MapReduce 数据清洗</li><li>YARN</li><li>Hadoop集群的搭建</li></ul><h4 id="Hive"><a href="#Hive" class="headerlink" title="Hive"></a>Hive</h4><ul><li>使用外部表</li><li>SQL</li><li>解决数据倾斜</li><li>机遇元数据的管理</li><li>SQL如何转换为MapReduce</li><li>以及一些相关优化</li></ul><h4 id="Flume"><a href="#Flume" class="headerlink" title="Flume"></a>Flume</h4><ul><li>使用flume进行数据采集</li></ul><h4 id="调度"><a href="#调度" class="headerlink" title="调度"></a>调度</h4><ul><li>初期： crontab shell</li><li>后期： Azkaban</li></ul><h4 id="HUE：可视化的notebook"><a href="#HUE：可视化的notebook" class="headerlink" title="HUE：可视化的notebook"></a>HUE：可视化的notebook</h4><ul><li>进行数据排查</li></ul><h4 id="项目：通用的一些知识点"><a href="#项目：通用的一些知识点" class="headerlink" title="项目：通用的一些知识点"></a>项目：通用的一些知识点</h4><ul><li>开发流程</li><li>分工</li><li>应用场景</li><li>常用数据平台</li><li>集群规模及资源评估</li></ul><h3 id="整体开发流程"><a href="#整体开发流程" class="headerlink" title="整体开发流程"></a>整体开发流程</h3><ul><li>数据采集</li><li>ETL    <em>**</em></li><li>将数据数据分析数据 移动到 外部表分区目录    <em>**</em></li><li>业务统计：SQL ==&gt; dest table    <em>**</em></li><li>WebUi</li></ul><h3 id="通用离线架构"><a href="#通用离线架构" class="headerlink" title="通用离线架构"></a>通用离线架构</h3><p><img src="https://img-blog.csdnimg.cn/20190409203903499.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjMzMDI1MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>]]></content>
     
