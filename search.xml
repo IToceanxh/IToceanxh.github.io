@@ -1,9 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[企业级项目开发流程]]></title>
+    <url>%2F2019%2F04%2F06%2F%E4%BC%81%E4%B8%9A%E7%BA%A7%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B%2F</url>
+    <content type="text"><![CDATA[项目调研 从业务角度出发对项目进行调研 人员：专业产品经理、非常熟悉业务的人员、项目经理等 需求分析 需求分析阶段是不需要关系如何实现的，主要明确要做什么，要做成什么样子的 用户提出的显式的需求 项目中可能隐藏的需求 ： 一般由技术人员提出]]></content>
+      <categories>
+        <category>大数据</category>
+      </categories>
+      <tags>
+        <tag>若泽数据</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[基于Hadoop生态离线日志分析项目--分析]]></title>
+    <url>%2F2019%2F04%2F05%2F%E5%9F%BA%E4%BA%8EHadoop%E7%94%9F%E6%80%81%E7%A6%BB%E7%BA%BF%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90%E9%A1%B9%E7%9B%AE--%E5%88%86%E6%9E%90%2F</url>
+    <content type="text"><![CDATA[前言 开始进入若泽数据学习进阶阶段，在进阶阶段均以生产项目实战为出发点，首先来学习基于hadoop生态圈的离线日志分析 相关知识点Hadoop hdfs 存储 MapReduce 数据清洗 YARN Hadoop集群的搭建 Hive 使用外部表 SQL 解决数据倾斜 机遇元数据的管理 SQL如何转换为MapReduce 以及一些相关优化 Flume 使用flume进行数据采集 调度 初期： crontab shell 后期： Azkaban HUE：可视化的notebook 进行数据排查 项目：通用的一些知识点 开发流程 分工 应用场景 常用数据平台 集群规模及资源评估 整体开发流程 数据采集 ETL ** 将数据数据分析数据 移动到 外部表分区目录 ** 业务统计：SQL ==&gt; dest table ** WebUi 通用离线架构]]></content>
+      <categories>
+        <category>大数据</category>
+      </categories>
+      <tags>
+        <tag>若泽数据</tag>
+        <tag>进阶</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[重新定义hdfs的数据目录和日志目录]]></title>
-    <url>%2F2019%2F03%2F02%2F20190501144459%2F</url>
-    <content type="text"><![CDATA[前言hdfs默认的数据存放路径实在/tmp/hadoop-${USER}/目录,前面已经提到，Linux系统对/tmp目录存在定期清理机制，那么我们的数据目录存放在这里是很危险的。希望将dfs目录和log目录都放到~/data目录中 修改dfs配置 通过官网参数查询，发现都存放在${hadoop.tmp.dir}目录中,需要根据官方参数重新定义${hadoop.tmp.dir}目录 停止hdfs1stop-dfs.sh 修改name目录12345vim etc/hadoop/hdfs-site.xml &lt;property&gt; &lt;name&gt;dfs.namenode.name.dir&lt;/name&gt; &lt;value&gt;/home/hadoop/data/dfs/name&lt;/value&gt; &lt;/property&gt; 修改data1234&lt;property&gt; &lt;name&gt;dfs.datanode.data.dir&lt;/name&gt; &lt;value&gt;/home/hadoop/data/dfs/data&lt;/value&gt;&lt;/property&gt; 修改secondarynamenode1234&lt;property&gt; &lt;name&gt;dfs.namenode.checkpoint.dir&lt;/name&gt; &lt;value&gt;/home/hadoop/data/dfs/namesecondary&lt;/value&gt;&lt;/property&gt; 格式化namenode1hadoop namenode -format 启动hdfs1start-dfs.sh 检查结果1ll ~/data/dfs]]></content>
+    <url>%2F2019%2F03%2F02%2F%E9%87%8D%E6%96%B0%E5%AE%9A%E4%B9%89hdfs%E7%9A%84%E6%95%B0%E6%8D%AE%E7%9B%AE%E5%BD%95%E5%92%8C%E6%97%A5%E5%BF%97%E7%9B%AE%E5%BD%95%2F</url>
+    <content type="text"><![CDATA[前言hdfs默认的数据存放路径实在/tmp/hadoop-${USER}/目录,前面已经提到，Linux系统对/tmp目录存在定期清理机制，那么我们的数据目录存放在这里是很危险的。希望将dfs目录和log目录都放到~/data目录中 配置log日志路径123vim $&#123;HADOOP_HOME&#125;/etc/hadoop/hadoop_env.sh# Where log files are stored. $HADOOP_HOME/logs by default.export HADOOP_LOG_DIR=/home/hadoop/data/logs 修改dfs配置 通过官网参数查询，发现都存放在${hadoop.tmp.dir}目录中,需要根据官方参数重新定义${hadoop.tmp.dir}目录 停止hdfs1stop-dfs.sh 修改name目录12345vim etc/hadoop/hdfs-site.xml &lt;property&gt; &lt;name&gt;dfs.namenode.name.dir&lt;/name&gt; &lt;value&gt;/home/hadoop/data/dfs/name&lt;/value&gt; &lt;/property&gt; 修改data1234&lt;property&gt; &lt;name&gt;dfs.datanode.data.dir&lt;/name&gt; &lt;value&gt;/home/hadoop/data/dfs/data&lt;/value&gt;&lt;/property&gt; 修改secondarynamenode1234&lt;property&gt; &lt;name&gt;dfs.namenode.checkpoint.dir&lt;/name&gt; &lt;value&gt;/home/hadoop/data/dfs/namesecondary&lt;/value&gt;&lt;/property&gt; 格式化namenode1hadoop namenode -format 启动hdfs1start-dfs.sh 检查结果12ll ~/data/dfsll ~/data/logs]]></content>
       <categories>
         <category>大数据</category>
       </categories>
@@ -138,8 +161,8 @@
       </categories>
       <tags>
         <tag>若泽数据</tag>
-        <tag>运维</tag>
         <tag>Linux基础</tag>
+        <tag>运维</tag>
         <tag>数据库</tag>
       </tags>
   </entry>
@@ -152,8 +175,8 @@
       </categories>
       <tags>
         <tag>若泽数据</tag>
-        <tag>运维</tag>
         <tag>Linux基础</tag>
+        <tag>运维</tag>
       </tags>
   </entry>
   <entry>
@@ -165,8 +188,8 @@
       </categories>
       <tags>
         <tag>若泽数据</tag>
-        <tag>运维</tag>
         <tag>Linux基础</tag>
+        <tag>运维</tag>
       </tags>
   </entry>
   <entry>
@@ -178,8 +201,8 @@
       </categories>
       <tags>
         <tag>若泽数据</tag>
-        <tag>运维</tag>
         <tag>Linux基础</tag>
+        <tag>运维</tag>
       </tags>
   </entry>
   <entry>
@@ -191,8 +214,8 @@
       </categories>
       <tags>
         <tag>若泽数据</tag>
-        <tag>运维</tag>
         <tag>Linux基础</tag>
+        <tag>运维</tag>
       </tags>
   </entry>
   <entry>
@@ -204,8 +227,8 @@
       </categories>
       <tags>
         <tag>若泽数据</tag>
-        <tag>运维</tag>
         <tag>Linux基础</tag>
+        <tag>运维</tag>
       </tags>
   </entry>
   <entry>
@@ -217,8 +240,8 @@
       </categories>
       <tags>
         <tag>若泽数据</tag>
-        <tag>运维</tag>
         <tag>Linux基础</tag>
+        <tag>运维</tag>
       </tags>
   </entry>
   <entry>
