@@ -122,18 +122,18 @@
 
 
 
-<meta name="description" content="什么是Spark">
+<meta name="description" content="什么是SparkSpark 是一个用来实现快速而通用的集群计算的平台。Saprk描述友情博客跳转">
 <meta name="keywords" content="若泽数据,大数据">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spark入门">
 <meta property="og:url" content="http://IToceanxh.github.io/2019/05/02/Spark入门/index.html">
 <meta property="og:site_name" content="小海的博客">
-<meta property="og:description" content="什么是Spark">
+<meta property="og:description" content="什么是SparkSpark 是一个用来实现快速而通用的集群计算的平台。Saprk描述友情博客跳转">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-02T07:24:53.197Z">
+<meta property="og:updated_time" content="2019-05-02T09:02:06.687Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spark入门">
-<meta name="twitter:description" content="什么是Spark">
+<meta name="twitter:description" content="什么是SparkSpark 是一个用来实现快速而通用的集群计算的平台。Saprk描述友情博客跳转">
 
 
 
@@ -455,7 +455,8 @@
       
 
       
-        <h3 id="什么是Spark"><a href="#什么是Spark" class="headerlink" title="什么是Spark"></a>什么是Spark</h3><a id="more"></a>
+        <h3 id="什么是Spark"><a href="#什么是Spark" class="headerlink" title="什么是Spark"></a>什么是Spark</h3><p>Spark 是一个用来实现快速而通用的集群计算的平台。<br><a href="https://blog.csdn.net/m0_37618809/article/details/82495544" target="_blank" rel="noopener">Saprk描述友情博客跳转</a></p>
+<a id="more"></a>
 <h3 id="为什么选择Spark"><a href="#为什么选择Spark" class="headerlink" title="为什么选择Spark"></a>为什么选择Spark</h3><h4 id="MapReduce的局限性"><a href="#MapReduce的局限性" class="headerlink" title="MapReduce的局限性"></a>MapReduce的局限性</h4><h5 id="繁杂"><a href="#繁杂" class="headerlink" title="繁杂"></a>繁杂</h5><ul>
 <li>MapReduce提供了两种算子：map/reduce，不论是复杂的还是简单的，都需要map和reduce<br>当然，MapJoin中是不需要reduce阶段的<ol>
 <li>low-level</li>
@@ -470,7 +471,44 @@
 <li>排序： MapReduce执行流程中每个阶段都会进行排序，但是很多阶段的排序是没有必要进行的</li>
 <li>Memory: 只可以做有限的基于内存的处理动作</li>
 </ul>
-<h5 id="不适合迭代处理"><a href="#不适合迭代处理" class="headerlink" title="不适合迭代处理"></a>不适合迭代处理</h5>
+<h5 id="不适合迭代处理"><a href="#不适合迭代处理" class="headerlink" title="不适合迭代处理"></a>不适合迭代处理</h5><h5 id="不适合流式处理"><a href="#不适合流式处理" class="headerlink" title="不适合流式处理"></a>不适合流式处理</h5><ul>
+<li>只能进行离线处理</li>
+</ul>
+<h4 id="框架间各自为战"><a href="#框架间各自为战" class="headerlink" title="框架间各自为战"></a>框架间各自为战</h4><h3 id="Spark的特点"><a href="#Spark的特点" class="headerlink" title="Spark的特点"></a>Spark的特点</h3><ul>
+<li>计算速度快<ul>
+<li>基于线程</li>
+<li>定义是否排序</li>
+<li>有向无环图(DAG)</li>
+</ul>
+</li>
+<li>易用性:从应用层面来说<ul>
+<li>支持Java，Scala，Python，R语言编程</li>
+<li>Spark提供了超过80中high-level算子</li>
+<li>开发速度快：提供了Scala，Python，R语言的交互式shell命令行</li>
+</ul>
+</li>
+<li>通用性<ul>
+<li>在Apache  Spark之上支持了Spark SQL，Spark Streaming , MLlib , Graphx 等</li>
+</ul>
+</li>
+<li>可以运行在任何地方<ul>
+<li>Hadoop</li>
+<li>Apache Mesos</li>
+<li>Kubernetes</li>
+<li>standalone</li>
+<li>云</li>
+<li>同时可以访问不同的数据源</li>
+</ul>
+</li>
+</ul>
+<h3 id="如何学习Spark"><a href="#如何学习Spark" class="headerlink" title="如何学习Spark"></a>如何学习Spark</h3><ul>
+<li>官网：spark.apache.org</li>
+<li>github案例： github.com/apache/spark</li>
+<li>注册 mail list</li>
+<li>源码</li>
+<li>user list</li>
+</ul>
+
       
     </div>
     
@@ -488,7 +526,7 @@
   <p><span>本文标题:</span><a href="/2019/05/02/Spark入门/">Spark入门</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Harm灬小海 的个人博客">Harm灬小海</a></p>
   <p><span>发布时间:</span>2019年05月02日 - 14:49</p>
-  <p><span>最后更新:</span>2019年05月02日 - 15:24</p>
+  <p><span>最后更新:</span>2019年05月02日 - 17:02</p>
   <p><span>原始链接:</span><a href="/2019/05/02/Spark入门/" title="Spark入门">http://IToceanxh.github.io/2019/05/02/Spark入门/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://IToceanxh.github.io/2019/05/02/Spark入门/" aria-label="复制成功！"></i></span>
   </p>
@@ -554,6 +592,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/02/Spark源码下载和编译/" rel="prev" title="Spark源码编译和部署">
+                Spark源码编译和部署 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -639,7 +681,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -735,7 +777,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是Spark"><span class="nav-number">1.</span> <span class="nav-text">什么是Spark</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么选择Spark"><span class="nav-number">2.</span> <span class="nav-text">为什么选择Spark</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#MapReduce的局限性"><span class="nav-number">2.1.</span> <span class="nav-text">MapReduce的局限性</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#繁杂"><span class="nav-number">2.1.1.</span> <span class="nav-text">繁杂</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#效率低"><span class="nav-number">2.1.2.</span> <span class="nav-text">效率低</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#不适合迭代处理"><span class="nav-number">2.1.3.</span> <span class="nav-text">不适合迭代处理</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是Spark"><span class="nav-number">1.</span> <span class="nav-text">什么是Spark</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么选择Spark"><span class="nav-number">2.</span> <span class="nav-text">为什么选择Spark</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#MapReduce的局限性"><span class="nav-number">2.1.</span> <span class="nav-text">MapReduce的局限性</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#繁杂"><span class="nav-number">2.1.1.</span> <span class="nav-text">繁杂</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#效率低"><span class="nav-number">2.1.2.</span> <span class="nav-text">效率低</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#不适合迭代处理"><span class="nav-number">2.1.3.</span> <span class="nav-text">不适合迭代处理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#不适合流式处理"><span class="nav-number">2.1.4.</span> <span class="nav-text">不适合流式处理</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#框架间各自为战"><span class="nav-number">2.2.</span> <span class="nav-text">框架间各自为战</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spark的特点"><span class="nav-number">3.</span> <span class="nav-text">Spark的特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何学习Spark"><span class="nav-number">4.</span> <span class="nav-text">如何学习Spark</span></a></li></ol></div>
             
 
           </div>
@@ -776,7 +818,7 @@
     <span class="post-meta-divider">|</span>
     <span id="busuanzi_container_site_uv">本站总访问量:<span id="busuanzi_value_site_uv"></span>人</span>
     <span class="post-meta-divider">|</span>
-	<span class="post-count">博客全站共19.1k字</span>
+	<span class="post-count">博客全站共19.3k字</span>
 
 
 
